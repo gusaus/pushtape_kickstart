@@ -2964,39 +2964,227 @@ html.js #commerce-backoffice-message-form fieldset .fieldset-legend {
     background: #fff;
     padding: 10px 10px 20px 10px; }
     
-    
+/**
+ * Pushtape Panels Styles specific to this theme
+ */
+
+/**
+ experiments w/ backgrounds
+ */
+
+body {
+  /* Allow for setting background color opacity, allows bg to show through */
+  background: none repeat scroll 0 0 rgba(202, 221, 226, 0.75);
+}
+
+
+/**
+ * messing around w/ colors
+ */
+
+
+.zone-content-wrapper .zone-content {
+  background-color:#CCCCCC;
+  opacity:0.9;
+  filter:alpha(opacity=90); For IE8 and earlier
+}
+
+.zone-footer-wrapper {
+    background-color: #494949;
+}
+
+.zone-footer2-wrapper {
+    background-color: #3F3F3F;
+    color: #EEEEEE;
+}    
+
+
  /**
  * Pushtape Panels Styles
  */
- 
-.site-name a {
-    color: #EEEEEE;
-    text-decoration: none;
-}
 
 .panel-pane h2, .panel-pane a {
     margin-bottom: 5px;
 }
 
-/* 
-.panel-pane .pane-content {
-    padding-bottom: 2px;
+ /**
+ * Image styling 
+ */
+
+img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: top;
 }
 
-
-.panel-pane .pane-content .views-row {
-    margin-bottom: 5px;
+img.panopoly-image-full {
+  max-width: 100%;
+  width: 100% !important;
+  height: auto;
+  margin-bottom: .5em;
 }
+
+img.panopoly-image-half {
+  max-width: 50%;
+  width: 50%;
+  height: auto;
+  float: left;
+  margin-right: .75em;
+  margin-bottom: .5em;
+  margin-top: .5em;
+}
+
+img.panopoly-image-quarter {
+  max-width: 25%;
+  width: 25%;
+  height: auto;
+  float: left;
+  margin-right: .5em;
+  margin-bottom: .25em;
+  margin-top: .25em;
+}
+
+img.panopoly-image-featured {
+  max-width: 100%;
+  height: auto;
+}
+
+img.panopoly-image-thumbnail {
+  max-width: 100%;
+  height: auto;
+}
+
+img.panopoly-image-square {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto;
+}
+
+img.artwork-small {
+  max-width: 100%;
+  width: 100% !important;
+  height: auto;
+}
+
+img.panopoly-image-video {
+  max-width: 100%;
+  width: 100% !important;
+  height: auto;
+}
+
+/**
+ * RESPONSIVE GRIDS for Discography, Photos, and Video
  */
  
- /**
- * Changes to footer
- */
+/*  SECTIONS
+*/
 
-#footer {
-  border-top:solid #EEE 1px;
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
 }
 
+/*  
+* GROUPING  
+*/
+
+
+.group:before,
+.group:after {
+    content:"";
+    display:table;
+}
+.group:after {
+    clear:both;
+}
+.group {
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+/*  
+* GRID COLUMN SETUP 
+*/
+
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+
+.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+
+
+/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.col { 
+		margin: 1% 0 1% 0%;
+	}
+}
+
+/*  GRID OF THREE  */
+.span_3_of_3 {
+	width: 100%;
+}
+.span_2_of_3 {
+	width: 66.1%;
+}
+.span_1_of_3 {
+	width: 32.2%;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+
+@media only screen and (max-width: 480px) {
+	.span_3_of_3 {
+		width: 100%; 
+	}
+	.span_2_of_3 {
+		width: 100%; 
+	}
+	.span_1_of_3 {
+		width: 100%;
+	}
+}
+
+/*  GRID OF FOUR */
+
+	
+.span_4_of_4 {
+	width: 100%; 
+}
+
+.span_3_of_4 {
+	width: 74.6%; 
+}
+
+.span_2_of_4 {
+	width: 49.2%; 
+}
+
+.span_1_of_4 {
+	width: 23.8%; 
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span_4_of_4 {
+		width: 100%; 
+	}
+	.span_3_of_4 {
+		width: 100%; 
+	}
+	.span_2_of_4 {
+		width: 100%; 
+	}
+	.span_1_of_4 {
+		width: 100%; 
+	}
+}
 
 /**
  * Widgets
@@ -3011,105 +3199,254 @@ html.js #commerce-backoffice-message-form fieldset .fieldset-legend {
     margin-bottom: 10px;
 }
 
-/**
- * Discography views and widgets
- */
+/* Discography Styles*/
 
-/* 
-#main .view-releases .views-row,
-#main .view-albums .views-row,
-#main .view-tracks .views-row
- {
-  /* Alternate: inline-block instead of float to accomodate variable heights. IE fix: zoom:1; *display: inline; _height: 300px; 
-  display:inline-block; 
-  vertical-align:top;
-  */
-/* 
+body.node-type-album.page-node-edit .field-name-field-artwork,
+body.node-type-track.page-node-edit .field-name-field-artwork{
+  float:none;
+  margin:0;
+}
+
+body.node-type-album .field-name-field-links,
+body.node-type-track .field-name-field-links {
+  overflow:auto;
+}
+body.node-type-album .field-name-field-links .field-item a,
+body.node-type-track .field-name-field-links .field-item a {
   float:left;
-  margin-right:10px;
-  padding-bottom:1%;
-  margin-bottom:0;
-  height:280px;
-  width:225px; /* artwork_medium imagecache*/
-}
- */
-/* 
-.view-releases .views-row .views-field-field-artwork img,
-.view-albums .views-row .views-field-field-artwork img,
-.view-tracks .views-row .views-field-field-artwork img {
   display:block;
-  border: 1px solid #949494;
-  float: left;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  padding: 1px;  
+  padding:.75em 1.5em;
+  background:#F5f5f5; 
+  border-left:solid .75em #F2F2F2;
+  margin-right:.5em;
+  margin-bottom:.5em;
+  font-size:.9em;
 }
- */
-
-
-/* 
-.view-releases .views-row .views-field-field-artwork img:hover,
-.view-albums .views-row .views-field-field-artwork img:hover,
-.view-tracks .views-row .views-field-field-artwork img:hover {
-  border-color:#BFBFBF;
-  display:block;
+body.node-type-album .field-name-field-artwork,
+body.node-type-track .field-name-field-artwork{
+  float:none;
+  margin:0 auto;
+  border:none;
 }
- */
-
-/* 
-.view-releases .views-row .views-field-field-artwork a,
-.view-albums .views-row .views-field-field-artwork a,
-.view-tracks .views-row .views-field-field-artwork a {
-  background:000;
-  display:block;
+body.node-type-album .field-name-field-artwork img,
+body.node-type-track .field-name-field-artwork img {
+  width:100%;
 }
- */
-
-/* 
-.view-releases .views-row .views-field-title a,
-.view-albums .views-row .views-field-title a,
-.view-tracks .views-row .views-field-title a {
-  font-family:"Arvo", Georgia, serif;
-  font-style:italic;
-  display:block;
-  padding:.5em 1em;
-  padding-left:0px;
+body .node-form .field-name-field-artwork img {
+  width:auto;
 }
- */
-
-/* 
-.sidebar .view-releases .views-row,
-.sidebar .view-albums .views-row,
-.sidebar .view-tracks .views-row {
-  margin-bottom:1%;
+body.node-type-track .field-name-field-audio {
+  float:none;
 }
- */
 
 
-/* 
-.view-events .view-empty,
-.view-news .view-empty,
-.view-photosets .view-empty,
-.view-releases .view-empty,
-.view-albums .view-empty,
-.view-tracks .view-empty,
-.view-video .view-empty {
-  background:#FAFAFA url(images/noise.png);
-  border:dashed 3px #F2F2F2;
-  padding:1em;
-  padding-top:2em;
-  padding-left:2em;
-  height:auto;
-  border-radius:5px;   
-}
- */
- */
+/* Individual Track Audio & Player Styles*/
 
-
-#discography .table {
+.views-field-field-tracklist ul li, 
+.views-field-field-tracklist ul {
+    list-style: none outside none;
     margin: 0;
-    vertical-align: top;
+    padding: 0;
 }
+
+.views-field-field-audio ul li {
+    margin: 0;
+    padding: 0;
+}
+
+.field-name-field-audio ul li,
+.field-name-field-audio ol li {
+  margin: 0;
+  padding: 0;
+}
+
+.node-type-track .field-name-field-audio {
+  display:inline-block;
+  padding-top:1em;
+  min-width: 80%;
+}
+
+.sm2-inline-list .ui360-vis .sm2-360ui,
+.sm2-inline-list .ui360-vis:hover .sm2-360ui,
+.ui360-vis .sm2-360ui,
+.ui360-vis:hover .sm2-360ui {
+  background:#F1F5F7 url(images/noise.png);
+  border: solid #bdc3c7 5px;
+  border-radius:50%;
+}
+.ui360-vis .sm2-canvas {
+  /* Negate the effect of the border width */  
+  margin-top:-5px;
+  margin-left:-5px;
+}
+.sm2-inline-list .ui360-vis a,
+.ui360-vis a  {
+  text-transform:uppercase;
+    white-space:normal;
+}
+.sm2-inline-list .ui360-vis:hover a.sm2_link,
+.ui360-vis:hover a.sm2_link {
+  background-color:transparent;
+}
+
+ul.graphic li a,
+ul.graphic li a.sm2_link {
+ /* assume all items will be sounds rather than wait for onload etc. in this example.. may differ for your uses. */
+ display:inline-block;
+ padding-left:22px;
+ min-height:16px;
+ vertical-align: middle;
+ background-color:#336699;
+ border-radius:3px;
+ padding:3px 3px 3px 25px;
+ min-width:85%;
+ text-decoration:none;
+ font-weight:normal;
+ color:#f6f9ff;
+}
+
+
+/* Album Tracklist View & Player styles */
+
+#album.node ol, .node ul {
+    padding: 0;
+}
+
+.view-tracklist ol {
+  list-style-position:inside;
+  margin-left:0;
+  margin-top:20px;
+  text-indent:0;
+  padding-left:0;
+  width:450px;
+}
+
+
+.view-tracklist .views-field-field-audio {
+  float:right;
+}
+
+.view-tracklist .views-row {
+  line-height:50px;
+  padding:5px 10px;
+  padding-left:20px;
+  border-bottom:solid #EEE 1px;
+  list-style-type:decimal-leading-zero;
+  /*border-left:solid 10px #F5F2E3;*/
+
+}
+.view-tracklist .views-row-even {
+  /*border-left:solid 10px #FCFFE8;  
+  border-left:solid 10px #FFEDBF;*/
+}
+.view-tracklist .views-row-last {
+  border-bottom:none;
+}
+.view-tracklist .views-row:hover {
+  background:#F6F6F6;
+}
+
+.view-tracklist .views-field-field-artist {
+  color:#777;
+  font-size:.9em;
+  font-style:italic;
+  margin-left:1em;
+}
+.view-tracklist .views-field-title {
+  font-weight:bold;
+}
+
+/* Tracklist Player UI 360 Style*/
+.view-tracklist .ui360 a,
+.view-tracklist .ui360-vis a {
+  display:none;
+}
+.view-tracklist .ui360 .sm2-360ui {
+
+}
+.view-tracklist .ui360 .sm2-360ui.sm2_paused,
+.view-tracklist .ui360 .sm2-360ui.sm2_playing {
+ 
+}
+.view-tracklist .ui360 .sm2-360ui.sm2_playing {
+
+}
+
+.view-tracklist .ui360 .sm2-360btn-default {
+  background:url(images/play-default.png) no-repeat 50% 50%;
+  background-size:contain;
+}
+.view-tracklist .ui360 .sm2-360btn-default:hover {
+  background:url(images/play-default-hover.png) no-repeat 50% 50%;
+  background-size:contain;
+}
+
+.view-tracklist .ui360:hover,
+.view-tracklist .ui360 .sm2-360ui.sm2_paused .sm2-360btn:hover,
+.view-tracklist .ui360,
+.view-tracklist .ui360 .sm2-360ui.sm2_paused .sm2-360btn {
+  background:url(images/play.png) no-repeat 50% 50%;
+  
+}
+.view-tracklist .ui360 .sm2-360ui.sm2_playing .sm2-360btn:hover,
+.view-tracklist .ui360 .sm2-360btn-playing:hover {
+  background: url(images/pause.png) no-repeat 50% 50%;
+}
+
+/**
+ * Event Styles
+ */
+.view-events {
+  font-size:.9em;
+}
+.view-events .views-field-title {
+  text-transform:uppercase;
+}
+.view-events .views-field-field-date {
+  width:15%;
+}
+.view-events td.views-field-body {
+  width:50%;
+  color:#333;
+}
+.view-events .views-row-last {
+  border-bottom:none;
+}
+.view-events td {
+  padding:.5em 1em;
+}
+#block-views-events-block-1 {
+  color:#999;
+  border-top:dashed 1px #DDD;
+  margin-top:2em;
+  padding-top:2em;
+}
+#block-views-events-block-1 h2 {
+  
+}
+#block-views-events-block-1 .views-field-title,
+#block-views-events-block-1 .views-field-field-date  {
+
+}
+
+body.node-type-event .field-name-field-links {
+
+}
+body.node-type-event .field-name-field-links a {
+  float:left;
+  display:block;
+  padding:.75em 1.5em;
+  background:#F5f5f5; 
+  border-left:solid .75em #EEE;
+  margin-right:.5em;
+  margin-bottom:.5em;
+  font-size:.9em;
+}
+
+body.node-type-event .field-name-field-links a:hover {
+  border-color:#E0E0E0;
+  background:#F3F3F3;
+} 
 
 /**
  * Follow menu
@@ -3153,10 +3490,10 @@ html.js #commerce-backoffice-message-form fieldset .fieldset-legend {
     text-decoration: none;
 }
 #follow ul.menu li a.facebook {
-    background-image: url("../images/icon_facebook.png");
+    background-image: url("./images/icon_facebook.png");
 }
 #follow ul.menu li a.twitter {
-    background-image: url("../images/icon_twitter.png");
+    background-image: url("./images/icon_twitter.png");
 }
 
 /**
@@ -3183,17 +3520,53 @@ html.js #commerce-backoffice-message-form fieldset .fieldset-legend {
     min-height: 0px;
 }
 
- /**
- * News widgets
+/**
+ * News Styles
  */
+.view-news .views-row {
+  padding:.25% 4%;
 
-#news .views-row-1 {
-    font: inherit;
+  border-bottom:solid #EEE 1px; 
+}
+.view-news .views-row-last {
+  border-bottom:none;
 }
 
+.view-news .views-row-1 .submitted {
+
+}
 .view-news .views-row h2{
   margin-bottom:.25em;
   font-size:1.5em;
+}
+
+.view-news .views-row .field-name-body {
+  color:#666;
+  /*font-family:georgia;*/
+  text-align:justify;
+}
+.view-news .views-row .submitted {
+  color:#999;
+  font-size:.8em;
+  margin-bottom:.5em;
+}
+.view-news .views-row-odd {
+}
+.view-news .views-row:hover {
+  background:#F9F9F9;
+}
+
+ul.inline li.node-readmore {
+  padding:0;
+  margin:0;
+}
+.submitted {
+  color:#999;
+  margin-bottom:.5em;
+}
+body.node-type-news .content {
+  margin:0 auto;
+  
 }
 
  /**
@@ -3209,16 +3582,16 @@ html.js #commerce-backoffice-message-form fieldset .fieldset-legend {
     position: relative;
 }
 
-.flexslider ul li {
-    margin-left: 0px;
-}
-
 #featured .flexslider .slides img {
     padding: 0 1em;
 }
 
 #featured .flex-nav-container {
     margin-bottom: 0;
+}
+
+.news-slideshow ul li {
+    margin: 0;
 }
 
  /**
@@ -3236,113 +3609,7 @@ html.js #commerce-backoffice-message-form fieldset .fieldset-legend {
     border-radius: 6px 6px 6px 6px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
-
-/**
- * Photos widgets
- */
-
-.view-photosets .views-row  {
-  margin-bottom:0px;
-  vertical-align: top;
-}
-
-/**
- * Video Styles
- */
-
-.view-video .field-multiple-table th.field-label, td, th {
-    padding: 0.0em 0em;
-    vertical-align: top;
-}
-
-
-
-/**
- experiments w/ backgrounds
- */
-
-body {
-  /* Allow for setting background color opacity, allows bg to show through */
-  background: none repeat scroll 0 0 rgba(202, 221, 226, 0.75);
-}
-
-
-/**
- * messing around w/ colors
- */
-
-
-.zone-content-wrapper .zone-content {
-  background-color:#CCCCCC;
-  opacity:0.9;
-  filter:alpha(opacity=90); For IE8 and earlier
-}
-
-.zone-footer-wrapper {
-    background-color: #494949;
-}
-
-.zone-footer2-wrapper {
-    background-color: #3F3F3F;
-    color: #EEEEEE;
-}
  
- 
- /**
- * Image styling 
- */
-img.panopoly-image-full {
-  max-width: 100%;
-  width: 100% !important;
-  height: auto;
-  margin-bottom: .5em;
-}
-
-img.panopoly-image-half {
-  max-width: 50%;
-  width: 50%;
-  height: auto;
-  float: left;
-  margin-right: .75em;
-  margin-bottom: .5em;
-  margin-top: .5em;
-}
-
-img.panopoly-image-quarter {
-  max-width: 25%;
-  width: 25%;
-  height: auto;
-  float: left;
-  margin-right: .5em;
-  margin-bottom: .25em;
-  margin-top: .25em;
-}
-
-img.panopoly-image-featured {
-  max-width: 100%;
-  height: auto;
-}
-
-img.panopoly-image-thumbnail {
-  max-width: 100%;
-  height: auto;
-}
-
-img.panopoly-image-square {
-  max-width: 100%;
-  width: 100% !important;
-  height: auto;
-  margin-top: .5em;
-  margin-bottom: .5em;
-}
-
-img.panopoly-image-video {
-  max-width: 100%;
-  width: 100% !important;
-  height: auto;
-  margin-top: .5em;
-  margin-bottom: .5em;
-}
 
 /**
  * Fending syle
